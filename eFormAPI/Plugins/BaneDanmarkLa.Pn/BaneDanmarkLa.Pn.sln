@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaneDanmarkLa.Pn", "BaneDanmarkLa.Pn\BaneDanmarkLa.Pn.csproj", "{32179149-FC54-4F73-BFB6-012ED348E3C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbMigrator", "DbMigrator\DbMigrator.csproj", "{214FB880-1978-4D32-8B7F-A87C7B20FF27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32179149-FC54-4F73-BFB6-012ED348E3C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32179149-FC54-4F73-BFB6-012ED348E3C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32179149-FC54-4F73-BFB6-012ED348E3C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32179149-FC54-4F73-BFB6-012ED348E3C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{214FB880-1978-4D32-8B7F-A87C7B20FF27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{214FB880-1978-4D32-8B7F-A87C7B20FF27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{214FB880-1978-4D32-8B7F-A87C7B20FF27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{214FB880-1978-4D32-8B7F-A87C7B20FF27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

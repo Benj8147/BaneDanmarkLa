@@ -1,0 +1,46 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/home/benjamin/Documents/workspace/microting/eform-angular-banedanmark-la-plugin/eFormAPI/Plugins/BaneDanmarkLa.Pn/DbMigrator/DbMigrator.csproj",
+    "projectName": "DbMigrator",
+    "projectPath": "/home/benjamin/Documents/workspace/microting/eform-angular-banedanmark-la-plugin/eFormAPI/Plugins/BaneDanmarkLa.Pn/DbMigrator/DbMigrator.csproj",
+    "outputPath": "/home/benjamin/Documents/workspace/microting/eform-angular-banedanmark-la-plugin/eFormAPI/Plugins/BaneDanmarkLa.Pn/DbMigrator/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.2"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp2.2": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.2": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}
