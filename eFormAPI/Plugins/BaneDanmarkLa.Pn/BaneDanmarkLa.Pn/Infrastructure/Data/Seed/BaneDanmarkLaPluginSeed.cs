@@ -1,14 +1,15 @@
 using BaneDanmarkLa.Pn.Infrastructure.Data.Seed.Data;
-using Microting.BaneDanmarkLaBase.Infrastructure.Data;
 using Microting.eFormApi.BasePn.Infrastructure.Database.Entities;
 using System;
+using System.Linq;
 using Microting.eForm.Infrastructure.Constants;
+using Microting.eFormCaseTemplateBase.Infrastructure.Data;
 
 namespace BaneDanmarkLa.Pn.Infrastructure.Data.Seed
 {
     public class BaneDanmarkLaPluginSeed
     {
-        public static void SeedData(BaneDanmarkLaPnDbContext dbContext)
+        public static void SeedData(CaseTemplatePnDbContext dbContext)
         {
             var seedData = new BaneDanmarkLaConfigurationSeedData();
             var configurationList = seedData.Data;

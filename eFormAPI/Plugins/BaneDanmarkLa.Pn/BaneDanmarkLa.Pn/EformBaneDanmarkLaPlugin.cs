@@ -13,6 +13,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microting.eFormApi.BasePn;
 using Microting.eFormApi.BasePn.Infrastructure.Database.Extensions;
 using Microting.eFormApi.BasePn.Infrastructure.Models.Application;
+using Microting.eFormApi.BasePn.Infrastructure.Settings;
+using Microting.eFormCaseTemplateBase.Infrastructure.Data;
+using Microting.eFormCaseTemplateBase.Infrastructure.Data.Factories;
 
 namespace BaneDanmarkLa.Pn
 {
@@ -32,10 +35,6 @@ namespace BaneDanmarkLa.Pn
         {
             services.AddSingleton<IBaneDanmarkLaLocalizationService, BaneDanmarkLaLocalizationService>();
             services.AddTransient<IBaneDanmarkLaPnSettingsService, BaneDanmarkLaPnSettingsService>();
-            services.AddTransient<IBaneDanmarkLaListCaseService, BaneDanmarkLaListCaseService>();
-            services.AddTransient<IBaneDanmarkLaReportService, BaneDanmarkLaReportService>();
-            services.AddTransient<IExcelService, ExcelService>();
-            services.AddTransient<IBaneDanmarkLaListService, BaneDanmarkLaListService>();
             services.AddSingleton<IRebusService, RebusService>();
             
         }
@@ -43,7 +42,7 @@ namespace BaneDanmarkLa.Pn
         public void AddPluginConfig(IConfigurationBuilder builder, string connectionString)
         {
             var seedData = new BaneDanmarkLaConfigurationSeedData();
-            var contextFactory = new BaneDanmarkLaPnContextFactory();
+            var contextFactory = new CaseTemplatePnContextFactory();
             builder.AddPluginConfiguration(
                 connectionString,
                 seedData,
@@ -63,16 +62,16 @@ namespace BaneDanmarkLa.Pn
             _connectionString = connectionString;
             if (connectionString.ToLower().Contains("convert zero datetime"))
             {
-                services.AddDbContext<BaneDanmarkLaPnDbContext>(o => o.UseMySql(connectionString,
+                services.AddDbContext<CaseTemplatePnDbContext>(o => o.UseMySql(connectionString,
                     b => b.MigrationsAssembly(PluginAssembly().FullName)));
             }
             else
             {
-                services.AddDbContext<BaneDanmarkLaPnDbContext>(o => o.UseSqlServer(connectionString,
+                services.AddDbContext<CaseTemplatePnDbContext>(o => o.UseSqlServer(connectionString,
                     b => b.MigrationsAssembly(PluginAssembly().FullName)));
             }
 
-            BaneDanmarkLaPnContextFactory contextFactory = new BaneDanmarkLaPnContextFactory();
+            CaseTemplatePnContextFactory contextFactory = new CaseTemplatePnContextFactory();
             var context = contextFactory.CreateDbContext(new[] {connectionString});
             context.Database.Migrate();
 
@@ -123,7 +122,7 @@ namespace BaneDanmarkLa.Pn
         public void SeedDatabase(string connectionString)
         {
             // Get DbContext
-            var contextFactory = new BaneDanmarkLaPnContextFactory();
+            var contextFactory = new CaseTemplatePnContextFactory();
             using (var context = contextFactory.CreateDbContext(new[] {connectionString}))
             {
                 // Seed configuration

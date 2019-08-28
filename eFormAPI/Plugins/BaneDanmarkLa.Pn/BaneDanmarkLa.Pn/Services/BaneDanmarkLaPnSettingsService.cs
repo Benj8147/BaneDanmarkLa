@@ -33,7 +33,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microting.eFormApi.BasePn.Infrastructure.Helpers.PluginDbOptions;
 using Microting.eFormApi.BasePn.Infrastructure.Models.API;
-using Microting.BaneDanmarkLaBase.Infrastructure.Data;
+using Microting.eFormCaseTemplateBase.Infrastructure.Data;
 
 namespace BaneDanmarkLa.Pn.Services
 {
@@ -43,14 +43,14 @@ namespace BaneDanmarkLa.Pn.Services
     {
         private readonly ILogger<BaneDanmarkLaPnSettingsService> _logger;
         private readonly IBaneDanmarkLaLocalizationService _baneDanmarkLaLocalizationService;
-        private readonly BaneDanmarkLaPnDbContext _dbContext;
+        private readonly CaseTemplatePnDbContext _dbContext;
         private readonly IPluginDbOptions<BaneDanmarkLaBaseSettings> _options;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
 
         public BaneDanmarkLaPnSettingsService(ILogger<BaneDanmarkLaPnSettingsService> logger,
             IBaneDanmarkLaLocalizationService baneDanmarkLaLocalizationService,
-            BaneDanmarkLaPnDbContext dbContext,
+            CaseTemplatePnDbContext dbContext,
             IPluginDbOptions<BaneDanmarkLaBaseSettings> options,
             IHttpContextAccessor httpContextAccessor)
         {

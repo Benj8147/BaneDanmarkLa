@@ -28,8 +28,8 @@ using Castle.Windsor;
 using eFormCore;
 using BaneDanmarkLa.Pn.Abstractions;
 using Microting.eFormApi.BasePn.Abstractions;
-using Microting.BaneDanmarkLaBase.Infrastructure.Data;
-using Microting.BaneDanmarkLaBase.Infrastructure.Data.Factories;
+using Microting.eFormCaseTemplateBase.Infrastructure.Data;
+using Microting.eFormCaseTemplateBase.Infrastructure.Data.Factories;
 using Rebus.Bus;
 
 namespace BaneDanmarkLa.Pn.Services
@@ -58,7 +58,7 @@ namespace BaneDanmarkLa.Pn.Services
             
             Core _core = _coreHelper.GetCore();
             _container.Register(Component.For<Core>().Instance(_core));
-            _container.Register(Component.For<BaneDanmarkLaPnDbContext>().Instance(GetContext()));
+            _container.Register(Component.For<CaseTemplatePnDbContext>().Instance(GetContext()));
             _bus = _container.Resolve<IBus>();
         }
 
@@ -66,9 +66,9 @@ namespace BaneDanmarkLa.Pn.Services
         {
             return _bus;
         }
-        private BaneDanmarkLaPnDbContext GetContext()
+        private CaseTemplatePnDbContext GetContext()
         {
-            BaneDanmarkLaPnContextFactory contextFactory = new BaneDanmarkLaPnContextFactory();
+            CaseTemplatePnContextFactory contextFactory = new CaseTemplatePnContextFactory();
             return contextFactory.CreateDbContext(new[] {_connectionString});
 
         }
